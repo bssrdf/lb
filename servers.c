@@ -28,7 +28,8 @@
 #include <stdlib.h>
 #include <inttypes.h>
 #include <string.h>
-#include <values.h>
+//#include <values.h>
+#include <limits.h>
 
 
 /* Allocate and initialize new HTTP server identified by its hostname/ip address for outgoing benchmark activities */
@@ -78,7 +79,8 @@ server_t * mkserver (char * full, counter_t todo, unsigned concurrency, unsigned
   /* Define here the callback to benchmark the HTTP server */
   evtimer_assign (& s -> req_evt, run -> base, server_cb, s);
 
-  s -> min = MAXINT;
+  //s -> min = MAXINT;
+  s -> min = INT_MAX;
 
   return s;
 }
